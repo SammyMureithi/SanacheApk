@@ -1,10 +1,14 @@
 import {Card, CardContent, TextInput, Button} from 'react-native-paper';
 import React, {useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function Login({navigation}) {
   const [username, setUsername] = useState('');
   const [password, setPasword] = useState('');
+  const handleSubmit = async () => {
+    console.log(await AsyncStorage.getItem('token'));
+  };
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Card
@@ -36,12 +40,17 @@ function Login({navigation}) {
           <TextInput
             mode="outlined"
             label="Password"
+            secureTextEntry={true}
             style={{width: 250}}
             value={password}
             onChangeText={password => setPasword(password)}
           />
           <Button
             style={{backgroundColor: 'green', marginTop: 20, color: 'white'}}
+            onPress={async () => {
+              await AsyncStorage.setItem('token', 'true');
+              console.log(await AsyncStorage.getItem('token'));
+            }}
             mode="contained"
             uppercase="true">
             Login

@@ -45,7 +45,6 @@ function ForgotPassword() {
               mode="outlined"
               label="Phone Number"
               keyboardType="phone-pad"
-              placeholderTextColor="#9a73ef"
               style={{width: 250}}
               value={phoneNumber}
               onChangeText={phoneNumber => setPhoneNumber(phoneNumber)}

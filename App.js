@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     storeDate();
   }, []);
+
   const Stack = createNativeStackNavigator();
   return (
     <PaperProvider>
@@ -30,7 +31,11 @@ function App() {
               component={Login}
               options={{headerShown: false}}
             />
-            <Stack.Screen name="Forgot Password" component={ForgotPassword} />
+            <Stack.Screen
+              name="Forgot Password"
+              component={ForgotPassword}
+              options={{headerShown: false}}
+            />
           </Stack.Navigator>
         ) : (
           <Stack.Navigator>
