@@ -1,8 +1,8 @@
 import {Card, CardContent, TextInput, Button} from 'react-native-paper';
 import React, {useState} from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 
-function Login() {
+function Login({navigation}) {
   const [username, setUsername] = useState('');
   const [password, setPasword] = useState('');
   return (
@@ -10,7 +10,7 @@ function Login() {
       <Card
         style={{
           width: '80%',
-          height: '90%',
+          height: '70%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -46,15 +46,18 @@ function Login() {
             uppercase="true">
             Login
           </Button>
-          <Text
-            style={{
-              alignSelf: 'center',
-              top: 10,
-              fontWeight: 'bold',
-              color: 'black',
-            }}>
-            Forgot Password
-          </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Forgot Password')}>
+            <Text
+              style={{
+                alignSelf: 'center',
+                top: 10,
+                fontWeight: 'bold',
+                color: 'black',
+              }}>
+              Forgot Password
+            </Text>
+          </TouchableOpacity>
         </Card.Content>
       </Card>
     </View>
