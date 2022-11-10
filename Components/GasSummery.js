@@ -1,7 +1,11 @@
 import React from 'react';
+import {useState} from 'react';
 import {Image, Text, View} from 'react-native';
 import {Card} from 'react-native-paper';
 function GasSummery({volume, percentG, percentE, Gas, Empties}) {
+  const [widthPercentG, setWidth] = useState(percentG);
+  const [widthPercentE, setWidthE] = useState(percentE);
+
   return (
     <Card style={{width: '90%', marginTop: 20}}>
       <Card.Content>
@@ -14,17 +18,14 @@ function GasSummery({volume, percentG, percentE, Gas, Empties}) {
               alignItems: 'center',
             }}>
             <Text style={{color: 'black', fontWeight: 'bold'}}>{volume}</Text>
-            <Image
-              source={require('../Images/Logo.jpeg')}
-              style={{width: 50, height: 50}}
-            />
+            <Image source={require('../Images/rf.png')} />
           </View>
           <View style={{width: '100%', display: 'flex', flexDirection: 'row'}}>
             <View
               style={{
                 height: 20,
                 backgroundColor: 'green',
-                width: '68%',
+                width: widthPercentG,
                 borderBottomRightRadius: 50,
               }}>
               <Text style={{color: 'white'}}>{percentG}</Text>
@@ -33,7 +34,7 @@ function GasSummery({volume, percentG, percentE, Gas, Empties}) {
               style={{
                 height: 20,
                 backgroundColor: 'red',
-                width: '32%',
+                width: widthPercentE,
                 borderBottomLeftRadius: 60,
               }}>
               <Text style={{color: 'white', left: 10}}>{percentE}</Text>

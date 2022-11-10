@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
-import {Card} from 'react-native-paper';
+import {Card, FAB} from 'react-native-paper';
+import FloatingActionButton from '../Components/FloatingActionButton';
 import GasSummery from '../Components/GasSummery';
 
 function Home() {
@@ -18,9 +19,11 @@ function Home() {
         volume={'13kg'}
         percentG="44%"
         percentE={'56%'}
-        Gas="170"
-        Empties="80"
+        Gas="110"
+        Empties="140"
       />
+    
+      <FloatingActionButton />
     </View>
   );
 }

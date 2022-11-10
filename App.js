@@ -15,7 +15,11 @@ function App() {
           {Context => {
             return (
               <NavigationContainer>
-                {Context.token === false ? <Authenitication /> : <HomeScreen />}
+                {Context.token === 'false' ? (
+                  <Authenitication />
+                ) : (
+                  <HomeScreen />
+                )}
               </NavigationContainer>
             );
           }}
