@@ -1,11 +1,11 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, ScrollView, Text, View} from 'react-native';
 import {Card, FAB} from 'react-native-paper';
 import FloatingActionButton from '../Components/FloatingActionButton';
 import GasSummery from '../Components/GasSummery';
+import OtherSummery from '../Components/OtherSummery';
 
 function Home() {
-  /**{volume,percentG,percentE,Gas,Empties} */
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <GasSummery
@@ -22,7 +22,10 @@ function Home() {
         Gas="110"
         Empties="140"
       />
-    
+      <OtherSummery title={'Others'} content="3kg,22.5kg,45kg,50kg" />
+      <OtherSummery title={'Accessories'} content="0" />
+      <OtherSummery title={"Today's Sales"} content="Kes.0" />
+      <OtherSummery title={"Today's Expenses"} content="Kes.0" />
       <FloatingActionButton />
     </View>
   );
