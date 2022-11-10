@@ -1,49 +1,26 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, {useEffect, useState} from 'react';
-import Login from './Screens/Login';
-import Sign from './Screens/Sign';
+import React from 'react';
+import {Text} from 'react-native';
+import {Consumer, LoginContext} from './Context/LoginContext';
+import Authenitication from './Navigations/Authenitication';
+import HomeScreen from './Navigations/HomeScreen';
 import {Provider as PaperProvider} from 'react-native-paper';
-import Home from './Screens/Home';
-import ForgotPassword from './Screens/ForgotPassword';
-function App() {
-  let store = 'false';
-  const [loginState, setLoginState] = useState(null);
-  const storeDate = async () => {
-    await AsyncStorage.setItem('token', 'false');
-    const token = await AsyncStorage.getItem('token');
-    store = await AsyncStorage.getItem('token');
-    setLoginState(token);
-  };
-  useEffect(() => {
-    storeDate();
-  }, []);
 
-  const Stack = createNativeStackNavigator();
+function App() {
   return (
     <PaperProvider>
-      <NavigationContainer>
-        {loginState == 'false' || loginState == null ? (
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Login"
-              component={Login}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Forgot Password"
-              component={ForgotPassword}
-              options={{headerShown: false}}
-            />
-          </Stack.Navigator>
-        ) : (
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Sign" component={Sign} />
-          </Stack.Navigator>
-        )}
-      </NavigationContainer>
+      <LoginContext>
+        <Consumer>
+          {Context => {
+            return (
+              <NavigationContainer>
+                {Context.token === false ? <Authenitication /> : <HomeScreen />}
+              </NavigationContainer>
+            );
+          }}
+        </Consumer>
+      </LoginContext>
     </PaperProvider>
   );
 }
