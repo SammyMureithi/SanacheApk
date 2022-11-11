@@ -9,7 +9,9 @@ function FloatingActionButton({handleDismiss, openModal}) {
         margin: 16,
         alignItems: 'center',
         bottom: 0,
+        borderColor: 'black',
         backgroundColor: 'green',
+        borderWidth: 2,
         borderRadius: 20,
         display: openModal ? 'none' : 'flex',
       }}>
