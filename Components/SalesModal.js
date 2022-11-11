@@ -17,6 +17,9 @@ function SalesModal({navigation}) {
     setOpen(open => !open);
     navigation.navigate('Home');
   }
+  function closeModal() {
+    setOpen(open => !open);
+  }
   return (
     <View
       style={{
@@ -33,19 +36,19 @@ function SalesModal({navigation}) {
                 alignItems: 'center',
                 width: '100%',
               }}>
-              <TouchableOpacity style={styles.view}>
+              <TouchableOpacity style={styles.view} onPress={closeModal}>
                 <Text style={styles.textView}>Retailer</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.view}>
+              <TouchableOpacity style={styles.view} onPress={closeModal}>
                 <Text style={styles.textView}>Wholesale</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.view}>
                 <Text style={styles.textView}>Vendor</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.view}>
+              <TouchableOpacity style={styles.view} onPress={closeModal}>
                 <Text style={styles.textView}>Return Sales</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.view}>
+              <TouchableOpacity style={styles.view} onPress={closeModal}>
                 <Text style={styles.textView}>Reprint receipt</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.calcel} onPress={handleClose}>

@@ -17,7 +17,11 @@ function HomeScreen() {
         component={Home}
         options={{headerTitle: () => <HomeHeader />}}
       />
-      <Stack.Screen name="Sales" component={Sales} />
+      <Stack.Screen
+        name="Sales"
+        component={Sales}
+        options={{headerTintColor: 'green'}}
+      />
       <Stack.Screen name="Transfers" component={Transfers} />
       <Stack.Screen name="Expenses" component={Expenses} />
       <Stack.Screen name="Deposit" component={Deposit} />
