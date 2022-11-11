@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
 
-function FloatingActionButton() {
+function FloatingActionButton({handleDismiss, openModal}) {
   return (
     <View
       style={{
@@ -11,8 +11,9 @@ function FloatingActionButton() {
         bottom: 0,
         backgroundColor: 'green',
         borderRadius: 20,
+        display: openModal ? 'none' : 'flex',
       }}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleDismiss}>
         <Image
           source={require('../Images/fab.png')}
           style={{width: 40, height: 40}}

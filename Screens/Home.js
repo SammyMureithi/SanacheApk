@@ -1,11 +1,17 @@
 import React from 'react';
+import {useState} from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 import {Card, FAB} from 'react-native-paper';
 import FloatingActionButton from '../Components/FloatingActionButton';
 import GasSummery from '../Components/GasSummery';
+import HomeModal from '../Components/HomeModal';
 import OtherSummery from '../Components/OtherSummery';
 
-function Home() {
+function Home({navigation}) {
+  const [openModal, setOpenModal] = useState(false);
+  function handleDismiss() {
+    setOpenModal(prevOpen => !prevOpen);
+  }
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <GasSummery
@@ -26,7 +32,15 @@ function Home() {
       <OtherSummery title={'Accessories'} content="0" />
       <OtherSummery title={"Today's Sales"} content="Kes.0" />
       <OtherSummery title={"Today's Expenses"} content="Kes.0" />
-      <FloatingActionButton />
+      <HomeModal
+        visible={openModal}
+        handleDismiss={handleDismiss}
+        navigation={navigation}
+      />
+      <FloatingActionButton
+        handleDismiss={handleDismiss}
+        openModal={openModal}
+      />
     </View>
   );
 }
