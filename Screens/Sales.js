@@ -20,7 +20,7 @@ function Sales({navigation}) {
     <SafeAreaView style={{position: 'relative', height: '100%'}}>
       <TextInput
         label="Search Product"
-        style={{width: '90%', alignSelf: 'center'}}
+        style={{width: '90%', alignSelf: 'center', borderRadius: 32}}
         mode="outlined"
       />
 
@@ -31,7 +31,7 @@ function Sales({navigation}) {
           alignSelf: 'center',
           alignItems: 'center',
           bottom: 0,
-          marginBottom: 10,
+          marginBottom: 20,
           width: '100%',
           borderRadius: 12,
         }}>
@@ -46,7 +46,7 @@ function Sales({navigation}) {
           </View>
           <View style={styles.cardItem}>
             <Text style={styles.cardItemTitle}>Payment:</Text>
-            <Text>Customer Name</Text>
+            <Text>Cash</Text>
           </View>
           <View style={styles.cardItem}>
             <View style={{display: 'flex', flexDirection: 'row'}}>
